@@ -1,16 +1,38 @@
+class Pod_Racer:
+    def __init__(self, max_speed, condition, price, owner):
+        self.max_speed = max_speed
+        self.condition = condition
+        self.price = price
+        self.owner = owner
+
+    def repair(self):
+        self.condition = 'repaired'
 
 
-def flatten_and_sort(lst):
-    out = []
-    for item in lst:
-        for i in item:
-            out.append(i)
-    return sorted(out)
+class Jar_Jar_Binks(Pod_Racer):
+    def __init__(self, max_speed, condition, price, owner='Jar Jar Binks'):
+        super().__init__(self, max_speed, condition, price, owner)
+
+    def boost(self):
+        self.max_speed *= 2
 
 
-nested = [0, -2, 5, 4, [5, 4, 122, 343], [325, 33344221]]
+class Darth(Pod_Racer):
+    def __init__(self, max_speed, condition, price, owner='Darth Vader'):
+        super().__init__(self, max_speed, condition, price, owner)
 
-out = flatten_and_sort(nested)
+        def flame_jet(self, other_pod):
+            other_pod.condition = 'destroyed'
 
-print(out)
-print(nested)
+
+jar_Jar_Binks_Pod = Jar_Jar_Binks(25, 'perfect', 1000)
+
+darth_pod = Darth(50, 'perfect', 500)
+
+print('jar jar condition', jar_Jar_Binks_Pod.condition)
+print('darth condition', darth_pod.condition)
+
+darth_pod.flame_jet(jar_Jar_Binks_Pod)
+
+print('jar jar condition', jar_Jar_Binks_Pod.condition)
+print('darth condition', darth_pod.condition)
