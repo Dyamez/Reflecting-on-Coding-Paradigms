@@ -22,6 +22,7 @@ class Darth(Pod_Racer):
         super().__init__(self, max_speed, condition, price, owner)
 
         def flame_jet(self, other_pod):
+            print('flaming', other_pod.owner)
             other_pod.condition = 'destroyed'
 
 
